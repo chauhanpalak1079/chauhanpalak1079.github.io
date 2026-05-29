@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kiran New Agency - Projects Showcase</title>
+    <title>Kiran Newspaper Agency</title>
     <style>
         * {
             margin: 0;
@@ -11,185 +11,302 @@
             box-sizing: border-box;
         }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
+        html {
+            scroll-behavior: smooth;
         }
 
+        body {
+            font-family: 'Georgia', 'Garamond', serif;
+            line-height: 1.8;
+            color: #2c2c2c;
+            background: #fafafa;
+        }
+
+        /* Header */
         header {
-            background: rgba(0, 0, 0, 0.8);
-            color: white;
-            padding: 2rem 0;
+            background: #ffffff;
+            padding: 3rem 2rem;
             text-align: center;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            border-bottom: 1px solid #e0e0e0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
         }
 
         header h1 {
             font-size: 2.5rem;
-            font-weight: 700;
-            letter-spacing: 1px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            color: #1a1a1a;
             margin-bottom: 0.5rem;
         }
 
-        header p {
-            font-size: 1rem;
-            opacity: 0.9;
+        header .tagline {
+            font-size: 0.95rem;
+            color: #666;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-weight: 400;
         }
 
+        /* Container */
         .container {
-            max-width: 1200px;
+            max-width: 900px;
             margin: 0 auto;
-            padding: 2rem;
+            padding: 0 2rem;
         }
 
-        .bio {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            margin: 2rem 0;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        /* Hero Section */
+        .hero {
+            padding: 5rem 2rem;
             text-align: center;
+            background: #ffffff;
         }
 
-        .bio h2 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            color: #667eea;
+        .hero h2 {
+            font-size: 2rem;
+            font-weight: 300;
+            color: #1a1a1a;
+            margin-bottom: 1.5rem;
+            line-height: 1.4;
         }
 
-        .bio p {
+        .hero p {
             font-size: 1.1rem;
             color: #555;
+            max-width: 700px;
+            margin: 0 auto 2rem;
             line-height: 1.8;
         }
 
-        .projects {
+        /* Projects Section */
+        .projects-section {
+            padding: 4rem 2rem;
+            background: #fafafa;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 300;
+            color: #1a1a1a;
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #1a1a1a;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
-            margin: 3rem 0;
+            margin-top: 2rem;
         }
 
         .project-card {
-            background: white;
-            border-radius: 10px;
+            background: #ffffff;
+            padding: 2.5rem;
+            border: 1px solid #e0e0e0;
+            transition: all 0.3s ease;
+            position: relative;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 3px;
+            background: #1a1a1a;
+            transition: left 0.3s ease;
         }
 
         .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            border-color: #1a1a1a;
         }
 
-        .project-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 1.5rem;
-            color: white;
+        .project-card:hover::before {
+            left: 0;
         }
 
-        .project-header h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
+        .project-number {
+            font-size: 3rem;
+            font-weight: 300;
+            color: #e0e0e0;
+            margin-bottom: 1rem;
         }
 
-        .project-content {
-            padding: 1.5rem;
+        .project-card h3 {
+            font-size: 1.4rem;
+            font-weight: 400;
+            color: #1a1a1a;
+            margin-bottom: 1rem;
         }
 
-        .project-content p {
+        .project-card p {
+            font-size: 0.95rem;
             color: #666;
+            line-height: 1.8;
             margin-bottom: 1.5rem;
-            line-height: 1.6;
         }
 
         .project-link {
             display: inline-block;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            color: #1a1a1a;
             text-decoration: none;
-            padding: 0.75rem 1.5rem;
-            border-radius: 5px;
-            transition: opacity 0.3s ease;
-            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-bottom: 2px solid #1a1a1a;
+            padding-bottom: 0.25rem;
+            transition: all 0.3s ease;
+            font-weight: 500;
         }
 
         .project-link:hover {
-            opacity: 0.9;
+            letter-spacing: 2px;
+            padding-left: 0.5rem;
         }
 
-        footer {
-            background: rgba(0, 0, 0, 0.8);
-            color: white;
+        /* About Section */
+        .about-section {
+            padding: 4rem 2rem;
+            background: #ffffff;
             text-align: center;
-            padding: 1.5rem;
-            margin-top: 3rem;
+        }
+
+        .about-section h2 {
+            font-size: 1.8rem;
+            font-weight: 300;
+            color: #1a1a1a;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #1a1a1a;
+            display: inline-block;
+        }
+
+        .about-section p {
+            font-size: 1rem;
+            color: #555;
+            max-width: 700px;
+            margin: 1.5rem auto;
+            line-height: 1.8;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: #ffffff;
+            text-align: center;
+            padding: 2.5rem;
+            border-top: 1px solid #2c2c2c;
+            margin-top: 4rem;
         }
 
         footer p {
-            opacity: 0.9;
+            font-size: 0.9rem;
+            opacity: 0.8;
+            letter-spacing: 0.5px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .hero h2 {
+                font-size: 1.5rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Utility Classes */
+        .divider {
+            width: 40px;
+            height: 1px;
+            background: #1a1a1a;
+            margin: 2rem auto;
         }
     </style>
 </head>
 <body>
+    <!-- Header -->
     <header>
-        <h1>Kiran New Agency</h1>
-        <p>Innovative Solutions for Modern Businesses</p>
+        <h1>KIRAN NEWSPAPER AGENCY</h1>
+        <p class="tagline">Crafting Stories, Building Impact</p>
     </header>
 
-    <div class="container">
-        <section class="bio">
-            <h2>About Us</h2>
+    <!-- Hero Section -->
+    <section class="hero">
+        <h2>Quality Journalism & Digital Excellence</h2>
+        <p>We deliver compelling narratives and innovative media solutions that connect, inform, and inspire. Committed to truth, clarity, and exceptional storytelling.</p>
+        <div class="divider"></div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects-section">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <div class="project-number">01</div>
+                    <h3>Digital Publishing</h3>
+                    <p>Cutting-edge digital platforms for news distribution and audience engagement. We transform traditional journalism into modern, interactive digital experiences.</p>
+                    <a href="#" class="project-link">Learn More</a>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <div class="project-number">02</div>
+                    <h3>Content Strategy</h3>
+                    <p>Strategic content planning and editorial management. We help newsrooms optimize their workflows and maximize reach across multiple platforms.</p>
+                    <a href="#" class="project-link">Learn More</a>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <div class="project-number">03</div>
+                    <h3>Brand Development</h3>
+                    <p>Building strong, recognizable media brands. From visual identity to brand messaging, we help publications stand out in a crowded marketplace.</p>
+                    <a href="#" class="project-link">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="container">
+            <h2>About Kiran Newspaper Agency</h2>
+            <div class="divider"></div>
             <p>
-                Welcome to Kiran New Agency! We specialize in creating cutting-edge digital solutions that help businesses thrive in the modern landscape. With a passion for innovation and a commitment to excellence, we deliver projects that exceed expectations and drive real results for our clients.
+                Kiran Newspaper Agency is a forward-thinking media organization dedicated to excellence in journalism and digital innovation. We partner with newsrooms and media outlets to create compelling stories and reach engaged audiences across all platforms.
             </p>
-        </section>
+            <p>
+                With a focus on quality, integrity, and innovation, we transform how news is gathered, produced, and shared in the digital age.
+            </p>
+        </div>
+    </section>
 
-        <section class="projects">
-            <div class="project-card">
-                <div class="project-header">
-                    <h3>🚀 Web Development</h3>
-                </div>
-                <div class="project-content">
-                    <p>
-                        Custom responsive websites built with the latest technologies. We create engaging, fast-loading web experiences that convert visitors into customers.
-                    </p>
-                    <a href="#" class="project-link">View Project</a>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-header">
-                    <h3>📱 Mobile Apps</h3>
-                </div>
-                <div class="project-content">
-                    <p>
-                        Native and cross-platform mobile applications designed for seamless user experiences. From concept to deployment, we handle every aspect of app development.
-                    </p>
-                    <a href="#" class="project-link">View Project</a>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-header">
-                    <h3>🎨 Digital Design</h3>
-                </div>
-                <div class="project-content">
-                    <p>
-                        Creative digital design solutions that bring your brand to life. Our talented designers craft visually stunning interfaces that users love.
-                    </p>
-                    <a href="#" class="project-link">View Project</a>
-                </div>
-            </div>
-        </section>
-    </div>
-
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Kiran New Agency. All rights reserved.</p>
+        <p>&copy; 2025 Kiran Newspaper Agency. All rights reserved.</p>
+        <p style="margin-top: 1rem; font-size: 0.8rem;">Excellence in Journalism | Innovation in Media</p>
     </footer>
 </body>
 </html>
